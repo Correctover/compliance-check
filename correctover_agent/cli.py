@@ -15,9 +15,10 @@ from typing import Optional
 import click
 
 from .checker import ComplianceChecker, ComplianceReport
+from .license import LicenseValidator, check_and_record, LicenseExceededError
 
-VERSION = "1.0.0"
-CTA_URL = "https://correctover.com"
+VERSION = "1.1.0"
+CTA_URL = "https://correctover.com/checkout"
 PRICING_AUTH = "$2,999"
 PRICING_ANNUAL = "$999"
 
@@ -128,6 +129,19 @@ def cli():
 @click.option("--output", "-o", default=None, help="Output file path")
 def check_oauth(config_file: str, output_format: str, output: Optional[str]):
     """Check OAuth 2.1 compliance only."""
+    # License check
+    license_key = LicenseValidator.get_license_from_env()
+    validator = LicenseValidator("correctover-compliance-check")
+    if license_key:
+        validator.set_license_key(license_key)
+    status = validator.record_call()
+    tier = status.get('tier', 'free')
+    remaining = status.get('calls_remaining', 0)
+    if tier == 'free':
+        click.echo('Free tier: {} calls remaining today ({}/{})'.format(remaining, status['calls_today'], validator.FREE_LIMIT_PER_DAY), err=True)
+        click.echo('   Upgrade: https://correctover.com/checkout', err=True)
+    elif tier == 'pro':
+        click.echo('Pro license active - unlimited calls', err=True)
     config = json.loads(Path(config_file).read_text())
     checker = ComplianceChecker()
     issues = checker.check_oauth(config)

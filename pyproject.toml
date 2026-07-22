@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "correctover-compliance-check"
-version = "1.0.0"
+version = "1.1.0"
 description = "MCP OAuth 2.1 & CCS v1.0 Compliance Checker — enforce the 2026-07-28 mandate"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Correctover", email = "wangguigui@correctover.com" }]
