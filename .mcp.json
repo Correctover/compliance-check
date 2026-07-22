@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "correctover-compliance-check": {
+      "command": "correctover-compliance-check",
+      "args": ["check-full", "--format", "json"]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+name: correctover-compliance-check
+description: MCP OAuth 2.1 & CCS v1.0 compliance checker — enforce the 2026-07-28 mandate
+version: 1.0.0
+runtime: python
+entry: correctover-compliance-check

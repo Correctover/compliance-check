@@ -1,0 +1,15 @@
+{
+  "$schema": "https://glama.ai/schema/glama.json",
+  "name": "correctover-compliance-check",
+  "displayName": "Correctover Compliance Check — MCP OAuth 2.1 & CCS v1.0 Certifier",
+  "description": "Enforce the 2026-07-28 OAuth 2.1 mandate. Verify MCP protocol compliance, OAuth 2.1 (8 checks), CCS v1.0 standard (5 checks), and MCP protocol (5 checks). Issue compliance certifications.",
+  "homepage": "https://correctover.com/agents/compliance-check",
+  "category": "Security",
+  "license": "Apache-2.0",
+  "tags": ["compliance", "oauth2.1", "ccs", "mcp", "certification", "agent-security", "correctover"],
+  "pricing": {
+    "model": "paid",
+    "description": "Certification $2,999 + $999/year. Free compliance check (no cert).",
+    "free_tier": "Free compliance check (no certificate)"
+  }
+}
