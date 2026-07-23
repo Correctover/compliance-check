@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "correctover-compliance-check"
-version = "1.1.2"
+version = "1.2.0"
 description = "MCP OAuth 2.1 & CCS v1.0 compliance checker — enforce the 2026-07-28 mandate. 18 checks across OAuth, CCS standard, MCP protocol. First formal agent runtime standard (DOI: 10.5281/zenodo.21234580)."
 readme = "README.md"
 license = { text = "Apache-2.0" }
